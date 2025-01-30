@@ -7,7 +7,6 @@ const Sidebar: React.FC = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
-    console.log("Toggle button clicked"); // Debugging
     setSidebarOpen((prevState) => !prevState);
   };
 

@@ -1,4 +1,4 @@
-# Think & Code - HRMS Dashboard
+# FrontendInternalHRMS
 
 A modern HR management system dashboard built with React and Vite. The dashboard is designed to help HR teams manage employee data, track attendance, and generate reports.
 
@@ -11,26 +11,21 @@ A modern HR management system dashboard built with React and Vite. The dashboard
 
 ## Tech Stack
 
-- **Frontend:** React, Vite
+- **Frontend:** React
 - **Styling:** Tailwind CSS
 - **Icons:** Bootstrap Icons
-- **State Management:** React useState, Context API (if used)
 
-## Installation
+## Installation & Execution
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/think-code-hrms-dashboard.git
-
-
-Usage
-Once the app is running, you will be able to:
-
-Log in with your credentials (admin or HR).
-Navigate through the dashboard to manage employees and track attendance.
-Contribution
-Fork the repository.
-Create a new branch (git checkout -b feature-name).
-Commit your changes (git commit -m 'Add new feature').
-Push to the branch (git push origin feature-name).
-Create a pull request.
+   ``` git clone https://github.com/Think-and-Code/IHRMS_UI
+2. Get Into that folder:
+   ``` cd IHRMS_UI
+3. Install Node Modules
+   ``` npm i 
+   or
+   ``` npm install
+4. Run the project:
+   ``` npm run dev
+5. For Build
+   ``` npm run build

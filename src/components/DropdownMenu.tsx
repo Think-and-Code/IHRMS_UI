@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const DropdownMenu: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [Open, setOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setOpen(!Open);
 
   return (
     <>
@@ -14,12 +14,12 @@ const DropdownMenu: React.FC = () => {
         <i className="bi bi-chat-left-text-fill"></i>
         <div className="flex justify-between w-full items-center">
           <span className="text-[15px] ml-4 text-gray-200 font-bold">Projects</span>
-          <span className={`text-sm ${isOpen ? "rotate-180" : ""}`}>
+          <span className={`text-sm ${Open ? "rotate-180" : ""}`}>
             <i className="bi bi-chevron-down"></i>
           </span>
         </div>
       </div>
-      {isOpen && (
+      {Open && (
         <div className="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold">
           <h1 className="cursor-pointer p-2 hover:bg-violet-950 rounded-md mt-1">Updates</h1>
           <h1 className="cursor-pointer p-2 hover:bg-violet-950 rounded-md mt-1">User Details</h1>
