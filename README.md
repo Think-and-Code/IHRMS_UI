@@ -29,3 +29,5 @@ A modern HR management system dashboard built with React and Vite. The dashboard
    ``` npm run dev
 5. For Build
    ``` npm run build
+6. For Test
+   ``` npm run test
