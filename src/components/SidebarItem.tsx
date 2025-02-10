@@ -19,7 +19,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon, label, isSidebarOpen })
 
   return (
     <div
-      className="p-2.5 mt-3 flex items-center rounded-md p-5 duration-300 cursor-pointer hover:bg-violet-600 text-white"
+      className=" mt-3 flex items-center rounded-md p-5 duration-300 cursor-pointer hover:bg-violet-600 text-white"
       onClick={handleClick}
       role="button"
     >

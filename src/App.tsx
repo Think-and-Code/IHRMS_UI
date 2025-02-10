@@ -15,21 +15,6 @@ import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Team from "./pages/Team";
 
-// const lazyWithDelay = (importFn: () => Promise<any>, delay: number) => {
-//   return lazy(() =>
-//     new Promise((resolve) => {
-//       setTimeout(() => resolve(importFn()), delay);
-//     })
-//   );
-// };
-
-// const Home = lazyWithDelay(() => import("./pages/Home"), 3000);
-// const Dashboard = lazyWithDelay(() => import("./pages/Dashboard"), 3000);
-// const Attendance = lazyWithDelay(() => import("./pages/Attendance"), 3000);
-// const Schedule = lazyWithDelay(() => import("./pages/Schedule"), 3000);
-// const Settings = lazyWithDelay(() => import("./pages/Settings"), 3000);
-// const Team = lazyWithDelay(() => import("./pages/Team"), 3000);
-
 const App: React.FC = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
