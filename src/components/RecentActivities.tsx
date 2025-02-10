@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 const TodoList: React.FC = () => {
-  const [tasks, setTasks] = useState<{ text: string; completed: boolean }[]>([]); 
-  const [newTask, setNewTask] = useState<string>(""); 
+  const [tasks, setTasks] = useState<{ text: string; completed: boolean }[]>(
+    [],
+  );
+  const [newTask, setNewTask] = useState<string>("");
   const handleAddTask = () => {
     if (newTask.trim() !== "") {
       setTasks([...tasks, { text: newTask, completed: false }]);
-      setNewTask(""); 
+      setNewTask("");
     }
   };
 
@@ -17,7 +19,7 @@ const TodoList: React.FC = () => {
 
   const handleToggleComplete = (index: number) => {
     const updatedTasks = tasks.map((task, i) =>
-      i === index ? { ...task, completed: !task.completed } : task
+      i === index ? { ...task, completed: !task.completed } : task,
     );
     setTasks(updatedTasks);
   };
@@ -32,11 +34,11 @@ const TodoList: React.FC = () => {
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
           placeholder="Add a new task"
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 text-black"
         />
         <button
           onClick={handleAddTask}
-          className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          className="w-full py-2 bg-violet-500 text-white rounded-md hover:bg-violet-600"
         >
           Add Task
         </button>

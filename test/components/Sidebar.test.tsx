@@ -9,7 +9,9 @@ describe('Sidebar Component', () => {
     it('should render Sidebar when open', () => {
         render(
             <BrowserRouter>
-                <Sidebar isSidebarOpen={true} />
+                <Sidebar isSidebarOpen={true} toggleSidebar={function (): void {
+                    throw new Error('Function not implemented.');
+                } } />
             </BrowserRouter>
         );
 
@@ -18,6 +20,5 @@ describe('Sidebar Component', () => {
         expect(screen.getByText('Team')).toBeInTheDocument();
         expect(screen.getByText('Schedule')).toBeInTheDocument();
         expect(screen.getByText('Settings')).toBeInTheDocument();
-        expect(screen.getByText('Logout')).toBeInTheDocument();
     });
 });

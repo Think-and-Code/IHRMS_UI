@@ -1,7 +1,7 @@
 
 const Progress = () => {
     return (
-        <div>Progress</div>
+        <div className='px-15'>Progress</div>
     )
 }
 

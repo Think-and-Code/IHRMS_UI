@@ -1,23 +1,16 @@
-import React from "react";
-import { Menu, X, Search, UserCircle } from "lucide-react";
+import React, { useState } from "react";
+import {Search, UserCircle } from "lucide-react";
 import Logo from "../assets/logo.png";
+import Time from "./Time";
+import Date from "./Date";
 
-interface HeaderProps {
-  isSidebarOpen: boolean;
-  toggleSidebar: () => void;
-}
 
-const Header: React.FC<HeaderProps> = ({ isSidebarOpen, toggleSidebar }) => {
+const Header: React.FC= () => {
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
   return (
-    <header className="flex items-center justify-between p-4 bg-gray-900 text-white shadow-md">
+    <header className="flex items-center justify-between p-4 bg-gray-900 text-white shadow-md relative">
       <div className="flex items-center gap-4">
-        <button
-          onClick={toggleSidebar}
-          className="p-2 rounded-md hover:bg-gray-700 focus:outline-none"
-          aria-label="Toggle Sidebar"
-        >
-          {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
         <img src={Logo} alt="Logo" className="h-8" />
       </div>
 
@@ -29,11 +22,29 @@ const Header: React.FC<HeaderProps> = ({ isSidebarOpen, toggleSidebar }) => {
         />
         <Search size={20} className="absolute left-3 top-2 text-gray-400" />
       </div>
+      <div>
+        <Time />
+      </div>
+      <div>
+        <Date />
+      </div>
 
-      <div className="flex items-center gap-4">
-        <button className="p-2 rounded-full hover:bg-gray-700">
+      <div className="relative">
+        <button
+          className="p-2 rounded-full hover:bg-gray-700"
+          onClick={() => setDropdownOpen(!isDropdownOpen)}
+          role="Logout"
+        >
           <UserCircle size={28} />
         </button>
+
+        {isDropdownOpen && (
+          <div className="absolute right-0 mt-2 w-40 bg-white text-black rounded-md shadow-lg border border-gray-200">
+            <button className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+              Logout
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

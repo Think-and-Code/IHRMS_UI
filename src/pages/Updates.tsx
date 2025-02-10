@@ -1,7 +1,7 @@
 
 const Updates = () => {
     return (
-        <div>Updates</div>
+        <div className='px-15'>Updates</div>
     )
 }
 

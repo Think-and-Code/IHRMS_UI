@@ -5,9 +5,17 @@ import { describe, expect, it } from 'vitest';
 
 describe('Footer Component', () => {
 
-    it('should render the button with the correct label', () => {
+    it('should display relavent content', () => {
         render(<Footer />);
-        const footer = screen.getByText('Think&Code™');
-        expect(footer).toBeInTheDocument();
+        const name = screen.getByText('Think&Code™');
+        expect(name).toBeInTheDocument();
+        const about = screen.getByText('About');
+        expect(about).toBeInTheDocument();
+        const privacy = screen.getByText('Privacy Policy');
+        expect(privacy).toBeInTheDocument();
+        const licensing = screen.getByText('Licensing');
+        expect(licensing).toBeInTheDocument();
+        const contact = screen.getByText('Contact');
+        expect(contact).toBeInTheDocument();
     });
 });

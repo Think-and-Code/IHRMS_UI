@@ -1,7 +1,7 @@
 
 const Team = () => {
     return (
-        <div>Team</div>
+        <div className='px-15'>Team</div>
     )
 }
 

@@ -1,16 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import Settings from "./pages/Settings";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Licensing from "./pages/Licensing";
+import Updates from "./pages/Updates";
 import Dashboard from "./pages/Dashboard";
-import Home from "./pages/Home";
 import Attendance from "./pages/Attendance";
+import Settings from "./pages/Settings";
+import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
-import Team from './pages/Team'
+import Team from "./pages/Team";
 
+// const lazyWithDelay = (importFn: () => Promise<any>, delay: number) => {
+//   return lazy(() =>
+//     new Promise((resolve) => {
+//       setTimeout(() => resolve(importFn()), delay);
+//     })
+//   );
+// };
 
+// const Home = lazyWithDelay(() => import("./pages/Home"), 3000);
+// const Dashboard = lazyWithDelay(() => import("./pages/Dashboard"), 3000);
+// const Attendance = lazyWithDelay(() => import("./pages/Attendance"), 3000);
+// const Schedule = lazyWithDelay(() => import("./pages/Schedule"), 3000);
+// const Settings = lazyWithDelay(() => import("./pages/Settings"), 3000);
+// const Team = lazyWithDelay(() => import("./pages/Team"), 3000);
 
 const App: React.FC = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -22,17 +40,24 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className="relative">
-        <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <Sidebar isSidebarOpen={isSidebarOpen} />
+        <Header/>
+        <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         <main className="p-4">
-          <Routes>
-            <Route path="/Home" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/attendance" element={<Attendance />} />
-            <Route path="/schedule" element={<Schedule />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/team" element={<Team />} />
-          </Routes>
+          <Suspense fallback={<div className="spinner px-15">Loading...</div>}>
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/attendance" element={<Attendance />} />
+              <Route path="/schedule" element={<Schedule />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/Team" element={<Team />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+              <Route path="/Contact" element={<Contact />} />
+              <Route path="/Licensing" element={<Licensing />} />
+              <Route path="/Updates" element={<Updates />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

@@ -1,7 +1,7 @@
 
 const Schedule = () => {
     return (
-        <div>Schedule</div>
+        <div className='px-15'>Schedule</div>
     )
 }
 

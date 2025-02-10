@@ -9,7 +9,7 @@ describe('SidebarItem Component', () => {
   it('calls navigate on click with correct path', () => {
     render(
       <BrowserRouter>
-        <SidebarItem icon="bi bi-house-door-fill" label="Home" />
+        <SidebarItem icon="bi bi-house-door-fill" label="Home" isSidebarOpen={false} />
       </BrowserRouter>
     );
     const sidebarItem = screen.getByRole('button');
@@ -20,7 +20,7 @@ describe('SidebarItem Component', () => {
     it('calls navigate on click with correct path', () => {
       render(
         <BrowserRouter>
-          <SidebarItem icon="bi bi-house-door-fill" label="Attendance" />
+          <SidebarItem icon="bi bi-house-door-fill" label="Attendance" isSidebarOpen={false} />
         </BrowserRouter>
       );
       const sidebarItem = screen.getByRole('button');
@@ -31,7 +31,7 @@ describe('SidebarItem Component', () => {
     it('calls navigate on click with correct path', () => {
       render(
         <BrowserRouter>
-          <SidebarItem icon="bi bi-house-door-fill" label="Team" />
+          <SidebarItem icon="bi bi-house-door-fill" label="Team" isSidebarOpen={false} />
         </BrowserRouter>
       );
       const sidebarItem = screen.getByRole('button');
@@ -42,7 +42,7 @@ describe('SidebarItem Component', () => {
     it('calls navigate on click with correct path', () => {
       render(
         <BrowserRouter>
-          <SidebarItem icon="bi bi-house-door-fill" label="Schedule" />
+          <SidebarItem icon="bi bi-house-door-fill" label="Schedule" isSidebarOpen={false} />
         </BrowserRouter>
       );
       const sidebarItem = screen.getByRole('button');
@@ -53,7 +53,7 @@ describe('SidebarItem Component', () => {
     it('calls navigate on click with correct path', () => {
       render(
         <BrowserRouter>
-          <SidebarItem icon="bi bi-house-door-fill" label="Settings" />
+          <SidebarItem icon="bi bi-house-door-fill" label="Settings" isSidebarOpen={false} />
         </BrowserRouter>
       );
       const sidebarItem = screen.getByRole('button');

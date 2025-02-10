@@ -1,7 +1,7 @@
 
 const User_Details = () => {
   return (
-    <div>User Details</div>
+    <div className='px-15'>User Details</div>
   )
 }
 

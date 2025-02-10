@@ -1,7 +1,7 @@
 
 const Settings = () => {
   return (
-    <div>Settings</div>
+    <div className='px-15'>Settings</div>
   )
 }
 

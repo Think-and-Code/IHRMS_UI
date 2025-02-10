@@ -1,18 +1,16 @@
-import { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-type ValuePiece = Date | null;
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment'
 
-type Value = ValuePiece | [ValuePiece, ValuePiece];
+const localizer = momentLocalizer(moment)
 
-function Calender() {
-  const [value, onChange] = useState<Value>(new Date());
-
-  return (
-    <div className=''>
-      <Calendar className='bg-black' onChange={onChange} value={value} />
-    </div>
-  );
-}
-
-export default Calender;
+const MyCalendar = (props) => (
+  <div>
+    <Calendar
+      localizer={localizer}
+      events={myEventsList}
+      startAccessor="start"
+      endAccessor="end"
+      style={{ height: 500 }}
+    />
+  </div>
+)
