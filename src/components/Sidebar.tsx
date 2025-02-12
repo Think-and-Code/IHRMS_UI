@@ -1,51 +1,87 @@
 import React, { useState } from "react";
 import SidebarItem from "./SidebarItem";
-import DropdownMenu from "./DropdownMenu";
-import Logo from "../assets/logo.png";
+import { Menu, X } from "lucide-react";
 
-const Sidebar: React.FC = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+interface SidebarProps {
+  isSidebarOpen: boolean;
+  toggleSidebar: () => void;
+}
 
-  const toggleSidebar = () => {
-    setSidebarOpen((prevState) => !prevState);
-  };
+const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
+  const [Open, setOpen] = useState(false);
+
+  const toggleMenu = () => setOpen(!Open);
 
   return (
-    <div className="relative">
+    <div
+      className={`fixed top-20 left-0 bottom-5 rounded-r-xl bg-gray-900 text-white shadow-lg transform ${
+        isSidebarOpen ? "w-[280px] translate-x-0" : "w-[60px] -translate-x-0"
+      } transition-all duration-300 ease-in-out z-50`}
+    >
       <button
-        className="absolute z-[9999] text-gray-300 text-4xl top-3 left-[20px] cursor-pointer bg-gray-700"
         onClick={toggleSidebar}
+        className="p-4 rounded-md bg-gray-700 hover:bg-gray-600 focus:outline-none"
+        aria-label="Toggle Sidebar"
       >
-        <i className="bi bi-filter-left px-2 bg-gray-800 rounded-md"></i>
+        {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
+      <SidebarItem
+        icon="bi bi-house-door-fill"
+        label="Home"
+        isSidebarOpen={isSidebarOpen}
+      />
+      <SidebarItem
+        icon="bi bi-bookmark-fill"
+        label="Attendance"
+        isSidebarOpen={isSidebarOpen}
+      />
+      <SidebarItem
+        icon="bi bi-people-fill"
+        label="Team"
+        isSidebarOpen={isSidebarOpen}
+      />
+      <SidebarItem
+        icon="bi bi-calendar-event"
+        label="Schedule"
+        isSidebarOpen={isSidebarOpen}
+      />
 
-      {isSidebarOpen && (
-        <div className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900">
-          <div className="text-gray-100 text-xl">
-            <div className="p-2.5 mt-1 flex items-center w-[200px] ml-17">
-              <i><img src={Logo} alt="Logo" /></i>
-              <i
-                className="bi bi-x cursor-pointer ml-28 lg:hidden"
-                onClick={toggleSidebar}
-              ></i>
-            </div>
-            <div className="my-2 bg-gray-600 h-[1px]"></div>
+      <div
+        className="mt-3 flex items-center rounded-md p-5 duration-300 cursor-pointer hover:bg-violet-700 text-white"
+        onClick={toggleMenu}
+      >
+        <i className="bi bi-chat-left-text-fill"></i>
+        {isSidebarOpen && (
+          <div className="flex justify-between w-full items-center">
+            <span className="text-[15px] ml-4 text-gray-200 font-bold">
+              Projects
+            </span>
+            <span className={`text-sm ${Open ? "rotate-180" : ""}`}>
+              <i className="bi bi-chevron-down"></i>
+            </span>
           </div>
-          <div className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-white">
-            <i className="bi bi-search text-sm"></i>
-            <input
-              type="text"
-              placeholder="Search"
-              className="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
-            />
-          </div>
-          <SidebarItem icon="bi bi-house-door-fill" label="Home" />
-          <SidebarItem icon="bi bi-bookmark-fill" label="Attendance" />
-          <div className="my-4 bg-gray-600 h-[1px]"></div>
-          <DropdownMenu />
-          <SidebarItem icon="bi bi-box-arrow-in-right" label="Logout" />
+        )}
+      </div>
+
+      {Open && isSidebarOpen && (
+        <div className="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold">
+          <h1 className="cursor-pointer p-2 hover:bg-violet-900 rounded-md mt-1">
+            Updates
+          </h1>
+          <h1 className="cursor-pointer p-2 hover:bg-violet-900 rounded-md mt-1">
+            User Details
+          </h1>
+          <h1 className="cursor-pointer p-2 hover:bg-violet-900 rounded-md mt-1">
+            Progress
+          </h1>
         </div>
       )}
+
+      <SidebarItem
+        icon="bi bi-gear-fill"
+        label="Settings"
+        isSidebarOpen={isSidebarOpen}
+      />
     </div>
   );
 };
