@@ -14,14 +14,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
 
   return (
     <div
-      role="toggle"
-      className={`absolute top-[76px] left-0 h-screen bg-gray-900 text-white shadow-lg transform ${
+      className={`fixed top-20 left-0 bottom-5 rounded-r-xl bg-gray-900 text-white shadow-lg transform ${
         isSidebarOpen ? "w-[280px] translate-x-0" : "w-[60px] -translate-x-0"
       } transition-all duration-300 ease-in-out z-50`}
     >
       <button
         onClick={toggleSidebar}
-        className="p-5 rounded-md bg-gray-700 hover:bg-gray-700 focus:outline-none"
+        className="p-4 rounded-md bg-gray-700 hover:bg-gray-600 focus:outline-none"
         aria-label="Toggle Sidebar"
       >
         {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,13 +65,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
 
       {Open && isSidebarOpen && (
         <div className="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold">
-          <h1 className="cursor-pointer p-2 hover:bg-violet-950 rounded-md mt-1">
+          <h1 className="cursor-pointer p-2 hover:bg-violet-900 rounded-md mt-1">
             Updates
           </h1>
-          <h1 className="cursor-pointer p-2 hover:bg-violet-950 rounded-md mt-1">
+          <h1 className="cursor-pointer p-2 hover:bg-violet-900 rounded-md mt-1">
             User Details
           </h1>
-          <h1 className="cursor-pointer p-2 hover:bg-violet-950 rounded-md mt-1">
+          <h1 className="cursor-pointer p-2 hover:bg-violet-900 rounded-md mt-1">
             Progress
           </h1>
         </div>
@@ -83,8 +82,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         label="Settings"
         isSidebarOpen={isSidebarOpen}
       />
-
-      <div className="my-4 bg-gray-600 h-[1px]"></div>
     </div>
   );
 };

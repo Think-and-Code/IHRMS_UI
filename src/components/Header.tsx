@@ -1,52 +1,27 @@
-import React, { useState } from "react";
-import {Search, UserCircle } from "lucide-react";
-import Logo from "../assets/logo.png";
-import Time from "./Time";
-import Date from "./Date";
+import React from "react";
+import logo from '../../src/assets/logo.png';
+import { AppBar, Toolbar, Box } from "@mui/material";
 
+interface HeaderProps {
+  toggleSidebar: () => void;
+}
 
-const Header: React.FC= () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-
+const Header: React.FC<HeaderProps> = () => {
   return (
-    <header className="flex items-center justify-between p-4 bg-gray-900 text-white shadow-md relative">
-      <div className="flex items-center gap-4">
-        <img src={Logo} alt="Logo" className="h-8" />
-      </div>
-
-      <div className="relative w-1/3">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="w-full p-2 pl-10 bg-gray-800 text-gray-200 rounded-md outline-none focus:ring-2 focus:ring-violet-500"
-        />
-        <Search size={20} className="absolute left-3 top-2 text-gray-400" />
-      </div>
-      <div>
-        <Time />
-      </div>
-      <div>
-        <Date />
-      </div>
-
-      <div className="relative">
-        <button
-          className="p-2 rounded-full hover:bg-gray-700"
-          onClick={() => setDropdownOpen(!isDropdownOpen)}
-          role="Logout"
-        >
-          <UserCircle size={28} />
-        </button>
-
-        {isDropdownOpen && (
-          <div className="absolute right-0 mt-2 w-40 bg-white text-black rounded-md shadow-lg border border-gray-200">
-            <button className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
-              Logout
-            </button>
-          </div>
-        )}
-      </div>
-    </header>
+    <AppBar
+      position="fixed"
+      sx={{
+        zIndex: (theme) => theme.zIndex.drawer + 1, 
+        backgroundColor: "#1c1e26",
+      }}
+    >
+      <Toolbar>
+        
+        <img src={logo} alt="" className="h-10 object-contain content-center flex items-center justify-center w-full" />
+        <Box sx={{ flexGrow: 1 }} />
+        
+      </Toolbar>
+    </AppBar>
   );
 };
 
