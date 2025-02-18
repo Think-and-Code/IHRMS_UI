@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {Search, UserCircle } from "lucide-react";
 import Logo from "../assets/logo.png";
-import Time from "./Time";
-import Date from "./Date";
 
 
 const Header: React.FC= () => {
@@ -21,12 +19,6 @@ const Header: React.FC= () => {
           className="w-full p-2 pl-10 bg-gray-800 text-gray-200 rounded-md outline-none focus:ring-2 focus:ring-violet-500"
         />
         <Search size={20} className="absolute left-3 top-2 text-gray-400" />
-      </div>
-      <div>
-        <Time />
-      </div>
-      <div>
-        <Date />
       </div>
 
       <div className="relative">
